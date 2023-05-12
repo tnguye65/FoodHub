@@ -191,9 +191,10 @@ def login():
         user = User.objects(username=form.username.data).first()
         if user is not None and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
+            return redirect(url_for('index'))
         else:
             flash('Login attempt failed')
-        return redirect(url_for('index'))
+            return redirect(url_for('login'))
     return render_template('login.html', form=form)
 
 @app.route("/logout")
