@@ -1,0 +1,14 @@
+{% extends "header.html" %}
+{% block content %}
+
+<h1>{{ business.name }} Details</h1>
+<ul>
+    <li><strong>Name:</strong> {{ business.name }}</li>
+    <li><strong>Rating:</strong> {{ business.rating }}</li> 
+    <li><strong>Phone: </strong> {{ business.phone }}</li>
+    <li><strong>Address:</strong> {{ business. location.address1 }}, {{ business.location.city }}, {{ business.location.state }} {{ business.location.zip_code }}</li>
+    <li><strong>Price Range:</strong> {{ business.price }}</li>
+    <li><strong>Website:</strong> <a href="{{ business.url }}" target="_blank">{{ business.url }}</a></li>
+</ul>
+ 
+{% endblock %}

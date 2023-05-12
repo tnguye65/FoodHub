@@ -1,0 +1,39 @@
+{% extends "header.html" %}
+{% block content %}
+
+<div class="grid-container">
+
+    <div class="grid-item">Followers
+        {% for follow in follower %}
+          <li class="media review-item">
+            <img class="mr-3 comment-pic" src="data:image/png;base64,{{follow.user1.pic_encoded}}" alt="">
+            <div class="media-body">
+              <span class="float-right">
+                <small>{{ follow.date }}</small>
+              </span>
+              <a href="{{ url_for('profile', username=follow.user1.username) }}">
+                <strong>@{{ follow.user1.username }}</strong>
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+    </div>
+    <div class="grid-item">Following
+        {% for follow in following %}
+          <li class="media review-item">
+            <img class="mr-3 comment-pic" src="data:image/png;base64,{{follow.user2.pic_encoded}}" alt="">
+            <div class="media-body">
+              <span class="float-right">
+                <small>{{ follow.date }}</small>
+              </span>
+              <a href="{{ url_for('profile', username=follow.user2.username) }}">
+                <strong>@{{ follow.user2.username }}</strong>
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+    </div> 
+  </div>
+
+
+{% endblock %}
